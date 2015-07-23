@@ -456,8 +456,8 @@ class Map(object):
 
     @iter_obj('circle')
     def circle_marker(self, location=None, radius=500, popup=None,
-                      line_color='black', fill_color='black',
-                      fill_opacity=0.6):
+                      line_color='black', line_opacity=1,
+                      fill_color='black', fill_opacity=0.6):
         """Create a simple circle marker on the map, with optional popup text
         or Vincent visualization.
 
@@ -472,6 +472,8 @@ class Map(object):
             or a tuple of the form (Vincent object, 'vis_path.json')
         line_color: string, default black
             Line color. Can pass hex value here as well.
+        line_opacity: float, default 1
+            Line opacity, scale 0-1
         fill_color: string, default black
             Fill color. Can pass hex value here as well.
         fill_opacity: float, default 0.6
@@ -497,6 +499,7 @@ class Map(object):
                                      'radius': radius,
                                      'lat': location[0], 'lon': location[1],
                                      'line_color': line_color,
+                                     'line_opacity': line_opacity,
                                      'fill_color': fill_color,
                                      'fill_opacity': fill_opacity})
 
